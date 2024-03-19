@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Chitietgiay";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="container">
+    <div id="content-detail">
+        <div class="name">
+            <h2 class="mt-48 mr-16 name">@Model.TenGiay</h2>
+            <hr>
+        </div>
+        <div class="content">
+            <div class="mt-48 content-left pull-left left-content">
+                <img src="~/img/@Model.ImgUrl" alt="@Model.TenDH" class="item-img1" style="width: 586px; height: 390px; display: flex; justify-content: end; align-items: center; padding-right: 36px;">
+            </div>
+            <div class="contetn-right right-content">
+                <p class="item-detail" style="font-weight: bold; font-size: x-large;">@Model.MoTa</p>
+                <ul class="detail">
+                    <ul class="item-properties">
+                        <ul>
+                            <p>@Model.MoTa</p>
+                            <li>@Model.SoLuongTon</li>
+                            <li>@Model.KichThuoc</li>
+                            <li>@Model.HinhAnh</li>
+                        </ul>
+                        <br>
+
+                        <li class="item-model"><span class="key">Model:</span> <span class="value">@Model.TenGiay</span></li>
+                        <li class="item-model"><span class="key">Giá bán:</span> <span class="value">@String.Format("{0:0,0}", Model.DonGia) Đồng</span></li>
+                    </ul>
+                    <div id="btn-buy">
+                        <button class="rs-form btn-pri pull-left c-whi form__submit-small m-btn-loading">
+                            <a href="@Url.Action("ThemGiohang", "Giohang", new { id = @Model.MaGiay ,  strURL=Request.Url.ToString()  })" style="color: #fff; text-decoration: none">
+                                ĐẶT MUA
+                            </a>
+                        </button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

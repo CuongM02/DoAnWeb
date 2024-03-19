@@ -1,0 +1,122 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Web bán giày</title>
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div id="menu">
+                <div class="item">
+                    <img>
+                    <a class="item-actionlink">@Html.ActionLink("CTD Shop", "Index", "User")</a>
+                </div>
+                <div class="item">
+                    <a class="item-actionlink">@Html.ActionLink("Home", "Index", "User")</a>
+                </div>
+                <div class="item">
+                    <a class="item-actionlink">@Html.ActionLink("About", "About", "User")</a>
+                </div>
+                <div class="item">
+                    <a class="item-actionlink">@Html.ActionLink("Contact", "Contact", "User")</a>
+                </div>
+                <div class="item">
+                    <a class="item-actionlink">@Html.ActionLink("Shop", "Shop", "User")</a>
+                </div>
+                <div class="item">
+                    <a class="item-actionlink">@Html.ActionLink("Cart", "GioHang", "Giohang")</a>
+                </div>
+            </div>
+            <form action="" id="search-box">
+                <input type="text" id="search-text" placeholder="Search..." required>
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div id="account">             
+                @if (Session["Taikhoan"] != null)
+                {
+                    var kh = Session["Taikhoan"] as Web_Store.Model.KhachHang;
+                    <div class="item">
+                        <a href="@Url.Action("thongtincanhan","User")">
+                            Xin chào, @kh.HoTen
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="@Url.Action("DangXuat","User")"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                    </div>                                    
+                }
+                else
+                {
+                    <div class="item">
+                        <a class="item-actionlink" href="@Url.Action("DangNhap", "User")"> Sign In</a>
+                    </div>
+                    <div class="item">
+                        <a class="item-actionlink" href="@Url.Action("DangKy", "User")"> Sign Up</a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+        @*Hotline*@
+        <div class="hotline-phone-ring-wrap">
+            <div class="hotline-phone-ring">
+                <div class="hotline-phone-ring-circle"></div>
+                <div class="hotline-phone-ring-circle-fill"></div>
+                <div class="hotline-phone-ring-img-circle">
+                    <a href="tel:0392376658" class="pps-btn-img">
+                        <img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png" alt="" width="50">
+                    </a>
+                </div>
+            </div>
+            <div class="hotline-bar">
+                <a href="tel:0392376658">
+                    <span class="text-hotline">0392376658</span>
+                </a>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="box">
+                <div class="logo">
+                    <h2>CTD Shop</h2>
+                </div>
+                <p>Cung cấp sản phẩm với chất lượng đảm bảo uy tín cho quý khách</p>
+            </div>
+            <div class="box">
+                <h2>NỘI DUNG</h2>
+                <ul class="quick-menu">
+                    <ul class="item">
+                        <li>@Html.ActionLink("Home", "Index", "User")</li>
+                        <li>@Html.ActionLink("About", "About", "User")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "User")</li>
+                        <li>@Html.ActionLink("Shop", "Index", "User")</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="box">
+                <h2>LIÊN HỆ</h2>
+                <form action="">
+                    <input type="text" placeholder="Họ tên">
+                    <input type="text" placeholder="Địa chỉ email">
+                    <button>Nhận tin</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="~/Scripts/script.js"></script>    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

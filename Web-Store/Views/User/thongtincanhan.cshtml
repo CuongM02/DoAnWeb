@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Thông Tin Cá Nhân || CTDShop";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+
+    var kh = Session["Taikhoan"] as Web_Store.Model.KhachHang;
+}
+
+<section id="breadcrumb-wrapper3" class="breadcrumb-w-img">
+    <div class="breadcrumb-content">
+        <div class="wrapper">
+            <div class="inner text-center">
+                <div class="breadcrumb-big">
+                    <h2 align="center">
+                        Tài khoản
+                    </h2>
+                </div>
+                <div align="center" class="breadcrumb-small">
+                    <a href="@Url.Action("index","User")" title="Quay trở về trang chủ">Trang chủ</a>
+                    <span aria-hidden="true">/</span>
+                    <span>Thông Tin Cá Nhân</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="PageContainer" class="is-moved-by-drawer">
+    <main class="main-content" role="main">
+        <section id="page-wrapper">
+            <div class="wrapper">
+                <div class="inner">
+                    <h1 style="margin:0 600px;">Thông tin cá nhân</h1>
+                    <hr class="hr--small">
+                    <div class="grid">
+                        <div style="margin:0 600px;" class="grid__item two-thirds medium-down--one-whole">
+                
+                            <a href="@Url.Action("Edit","User",new {id = kh.MaKH })">Sửa Thông Tin Cá Nhân</a>
+                            <br />
+                            <br />
+                            <ul>
+                                <li>
+                                    Tên khách hàng: @kh.HoTen
+                                </li>                              
+                                <li>
+                                    Tên đăng nhập: @kh.TK
+                                </li>                               
+                                <li>
+                                    Ngày sinh : @string.Format("{0:dd/MM/yyyy}", @kh.NgaySinh)
+                                </li>                              
+                                <li>
+                                    Địa Chỉ: @kh.DiaChi
+                                </li>                                
+                                <li>
+                                    Số điện thoại: @kh.SDT
+                                </li>                              
+                                <li>
+                                    Email: @kh.Email
+                                </li>
+                            </ul>
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

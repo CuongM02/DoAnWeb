@@ -1,0 +1,40 @@
+﻿@model Web_Store.Model.KICHTHUOC
+
+@{
+    ViewBag.Title = "Trang xóa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>TRANG XÓA KÍCH THƯỚC</h2>
+
+<h3>Bạn có chắc chắn muốn xóa không?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã giày:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAGIAY)
+        </dd>
+        <dt>
+            Tên kích thước:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENKICHTHUOC)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại trang quản lý", "Index")
+        </div>
+    }
+</div>

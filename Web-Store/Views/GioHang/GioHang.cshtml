@@ -1,0 +1,207 @@
+﻿@*@using Web_Store.Model
+@model List<Giohang>
+@{
+    ViewBag.Title = "GioHang";
+}
+<h2 style="text-align:center">Thông Tin Giỏ Hàng</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight;bold">
+        <td> Mã Giầy </td>
+        <td> Tên Giầy </td>
+        <td> Ảnh Bìa </td>
+        <td> Số Lượng </td>
+        <td> Đơn Giá </td>
+        <td>Thành Tiền</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td> @item.iMaGiay  </td>
+            <td> @item.sTenGiay </td>
+            <td><img src="~/images/adidas1.jpeg/@item.sMoTa"</td>
+            <td>@String.Format("{0:0,0}", item.dDonGia) </td>
+            <td>@String.Format("{0:0,0}", item.dThanhTien) </td>
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:right;color:red">
+        <td colspan="3"> Số Lượng Giầy: @ViewBag.TongSoLuong </td>
+        <td colspan="3"> Tổng Tiền: @String.Format("{0:0,0}", ViewBag.TongTien) VND </td>
+    </tr>
+</table>*@
+
+
+@using Web_Store.Models
+@model List<Web_Store.Model.Giohang>
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/style_search.css">
+@*<link rel="stylesheet" type="text/css" href="~/Content/all.min.css">*@
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/Content/jquery.fancybox.min.css">
+<link rel="stylesheet" type="text/css" href="~/Content/slick.css">
+<link rel="stylesheet" type="text/css" href="~/Content/slick-theme.css">
+<link rel="stylesheet" type="text/css" href="~/Content/style.css">
+<link rel="stylesheet" type="text/css" href="~/Content/stylenews.css">
+<section id="breadcrumb-wrapper2" class="breadcrumb-w-img">
+    <div class="breadcrumb-overlay"></div>
+    <div class="breadcrumb-content">
+        <div class="wrapper">
+            <div class="inner text-center">
+                <div class="breadcrumb-big">
+                    <h2 style="text-align:center">THÔNG TIN GIỎ HÀNG</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="cartPage">
+    @foreach (var item in Model)
+    {
+        <div class="inforCart">
+            <div class="image">
+                <img src="~/img/@item.gHINHANH" alt="@item.sTenGiay" />
+            </div>
+            <div class="numberPrice">
+                <div class="title">
+                    <h3>@item.sTenGiay</h3>
+                </div>
+                <p>
+                    <b>Mã SP:</b> @item.iMaGiay<br />
+                </p>
+                @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSp = item.iMaGiay }))
+                {
+                    <div class="number">
+                        <div class="buttons_added">
+                            <input class="minus is-form" type="button" value="-">
+                            <input aria-label="quantity" class="input-qty" max="100" min="1" name="txtSoLuong" type="number" value="@item.iSoLuong">
+                            <input class="plus is-form" type="button" value="+">
+                        </div>
+                        <i class="fa fa-times"></i> <span class="textPrice">@String.Format("{0:0,0}", item.dDonGia)</span>
+                    </div>
+                    <div class="total_price">
+                        Thành tiền: <span class="textPrice sumprice33512298"> @String.Format("{0:0,0}", item.dThanhTien)</span>
+                    </div>
+                    <div class="btnCart">
+                        <button class="btnClick btnDel">
+                            @Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSp = item.iMaGiay })
+                        </button>
+                    </div>
+                    <div class="buyNext">
+                        <input size="100" type="submit" value="Cập Nhật" />
+                        <a size="100" href="@Url.Action("Chitiet", "User", new { id = item.iMaGiay})"> Chi tiết </a>
+                    </div>
+                }
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    }
+    <hr class="hr--small" />
+    <div class="itemCart sumItemCart row justify-content-between">
+        <div class="col-auto">
+            <div class="inforSum">
+                <b>Số lượng Giày: </b> <span class="textPrice sumPrice">@ViewBag.Tongsoluong</span>
+            </div>
+            <div class="inforSum">
+                <b>Tổng tiền:</b> <span class="textPrice sumPrice">@String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</span>
+            </div>
+        </div>
+        <div class="col-auto d-flex">
+            <div class="buyNext">
+                <a class="ps-btn" href="@Url.Action("XoaTatcaGiohang")">Xóa Giỏ Hàng</a>
+            </div>
+        </div>
+        <div class="col-auto d-flex">
+            <div class="buyNext">
+                <a class="ps-btn" href="@Url.Action("Dathang", "GioHang")">ĐẶT HÀNG</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(".hc-search-wrapper > a").click(function () {
+        $(".search-bar-header").toggle();
+    });
+</script>
+<style>
+    <b:tag name='style' >
+    /* <![CDATA[ */
+    .buttons_added {
+        opacity: 1;
+        display: inline-block;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        white-space: nowrap;
+        vertical-align: top;
+    }
+
+    .is-form {
+        overflow: hidden;
+        position: relative;
+        background-color: #f9f9f9;
+        height: 2.2rem;
+        width: 1.9rem;
+        padding: 0;
+        text-shadow: 1px 1px 1px #fff;
+        border: 1px solid #ddd;
+    }
+
+        .is-form:focus, .input-text:focus {
+            outline: none;
+        }
+
+        .is-form.minus {
+            border-radius: 4px 0 0 4px;
+        }
+
+        .is-form.plus {
+            border-radius: 0 4px 4px 0;
+        }
+
+    .input-qty {
+        background-color: #fff;
+        height: 2.2rem;
+        text-align: center;
+        font-size: 1rem;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        border-left: 0;
+        border-right: 0;
+        padding: 0;
+    }
+
+        .input-qty::-webkit-outer-spin-button, .input-qty::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    /* ]]> */
+    </b:tag >
+</style>
+<script>
+    $('input.input-qty').each(function () {
+        var $this = $(this),
+            qty = $this.parent().find('.is-form'),
+            min = Number($this.attr('min')),
+            max = Number($this.attr('max'))
+        if (min == 0) {
+            var d = 0
+        } else d = min
+        $(qty).on('click', function () {
+            if ($(this).hasClass('minus')) {
+                if (d > min) d += -1
+            } else if ($(this).hasClass('plus')) {
+                var x = Number($this.val()) + 1
+                if (x <= max) d += 1
+            }
+            $this.attr('value', d).val(d)
+        })
+    })
+</script>

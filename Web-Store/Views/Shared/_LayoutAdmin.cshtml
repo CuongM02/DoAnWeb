@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = null;
+}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>@ViewBag.Title - Admin</title>
+    <link href="~/Content/admin.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="loader"><img src="../../Images/img/loader.gif" /></div>
+    <div class="wrapper">
+        <div class="sidebar" style="height:1000px;">
+            <div class="top">
+                <div class="user">
+                     @{ var ad = @Session["Taikhoanadmin"] as Web_Store.Model.Admin;} -->
+                    <a href="@Url.Action("thongtinadmin","Admin")" class="name" style="color:white">
+                        <span>@ad.HoTen</span><br />
+                        <span>@ad.Email</span> 
+                    </a><br />
+                        <br />
+                    <a href="@Url.Action("dangxuat","Admin")" style="color:white">Đăng Xuất</a>`
+                </div>
+                <hr />
+            </div>
+            <div class="nContainer">
+                <ul class="navigation">
+                    <li class="active"><a href="@Url.Action("index","Admin")" class="blblue">Trang chủ</a></li>
+                    <br>
+                    <li>
+                        <a href="@Url.Action("index","User")" class="blyellow">Trang bán hàng</a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#" class="blred">Quản trị viên</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="@Url.Action("Create","Admin")">Thêm quản trị viên</a></li>
+                            <li><a href="@Url.Action("listadmin","Admin")">Trang quản lý</a></li>
+                        </ul><br>
+                    </li>
+                    <li>
+                        <a href="#" class="blyellow">Thương hiệu</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="@Url.Action("Create","ThuongHieu")">Thêm thương hiệu</a></li>
+                            <li><a href="@Url.Action("Index","ThuongHieu")">Trang quản lý</a></li>
+                        </ul><br>
+                    </li>
+                    <li>
+                        <a href="#" class="bldblue">Khách hàng</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="@Url.Action("create","KhachHang")">Thêm khách hàng</a></li>
+                            <li><a href="@Url.Action("Index","KhachHang")">Trang quản lý</a></li>
+                        </ul><br>
+                    </li>
+                    <li>
+                        <a href="#" class="blred">Kích thước</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="@Url.Action("Create","KichThuoc")">Thêm kích thước</a></li>
+                            <li><a href="@Url.Action("Index","KichThuoc")">Trang quản lý</a></li>
+                        </ul><br>
+                    </li>
+                    @*<li>
+                        <a href="#" class="bldblue">Kho</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="@Url.Action("Create","KhoHang")">Thêm sản phẩm vào kho</a></li>
+                            <li><a href="@Url.Action("Index","KhoHang")">Trang quản lý</a></li>
+                        </ul><br>
+                    </li>*@
+                    <li>
+                        <a href="#" class="blorange">Sản Phẩm</a>
+                        <div class="open"></div>
+                        <ul>
+                            <li><a href="@Url.Action("Create","Giay")">Thêm sản phẩm</a></li>
+                            <li><a href="@Url.Action("Index","Giay")">Trang quản lý</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a class="close">
+                    <span class="ico-remove"></span>
+                </a>
+            </div>
+            <div class="widget">
+                <div class="datepicker"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="body">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

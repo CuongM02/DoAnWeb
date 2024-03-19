@@ -1,0 +1,73 @@
+﻿@model Web_Store.Model.Giay
+
+@{
+    ViewBag.Title = "Trang chi tiết giày";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>TRANG THÔNG TIN CHI TIẾT GIÀY</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên giày:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGIay)
+        </dd>
+
+        <dt>
+            Đơn giá mua:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaMua)
+        </dd>
+
+        <dt>
+            Đơn giá bán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+
+        <dt>
+            Tên thương hiệu:
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.T.TENTH)*@
+        </dd>
+        <dt>
+            Số lượng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/img/"+  Model.HinhAnh)" width="180" />
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaGiay }) |
+    @Html.ActionLink("Quay lại trang quản lý", "Index")
+</p>

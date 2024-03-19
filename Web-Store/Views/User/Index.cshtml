@@ -1,0 +1,380 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@*Navbar*@
+<nav class="navbar" id="navbar">
+    <div class="down" onclick="add()" status="active"> <i class="fa-solid fa-angles-down fa-2x"></i></div>
+    <div class="bottom">
+        <h3 class="menuItem" onclick="first(0)">Adidas</h3>
+        <h3 class="menuItem" onclick="first(-100)">Nike</h3>
+        <h3 class="menuItem" onclick="first(-200)">Puma</h3>
+        <h3 class="menuItem" onclick="first(-300)">Jordan</h3>
+        <h3 class="menuItem" onclick="first(-400)">Yeezy</h3>
+    </div>
+</nav>
+
+@*Slider*@
+<div class="slider">
+    <div class="sliderWrapper">
+        <div class="sliderItem">
+            <img src="~/img/adidas-bg.png" alt="" class="sliderImg">
+            <div class="slideBg"></div>
+            <h1 class="title">ADIDAS <br> NEW <br> SEASON</h1>
+            <h2 class="price">119$</h2>
+            <a class="sld-a">
+                <button class="buyButton">@Html.ActionLink("BUY NOW", "Shop", "User")</button>
+            </a>
+        </div>
+
+        <div class="sliderItem">
+            <img src="~/img/nike-bg.png" alt="" class="sliderImg">
+            <div class="slideBg"></div>
+            <h1 class="title2">BLAZER <br> NEW <br> SEASON</h1>
+            <h2 class="price2">139$</h2>
+            <a class="sld-a">
+                <button class="buyButton2">@Html.ActionLink("BUY NOW", "Shop", "User")</button>
+            </a>
+        </div>
+        <div class="sliderItem">
+            <img src="~/img/puma-bg.png" alt="" class="sliderImg">
+            <div class="slideBg"></div>
+            <h1 class="title3">PUMA <br> NEW <br> SEASON</h1>
+            <h2 class="price3">99$</h2>
+            <a class="sld-a">
+                <button class="buyButton3">@Html.ActionLink("BUY NOW", "Shop", "User")</button>
+            </a>
+        </div>
+        <div class="sliderItem">
+            <img src="~/img/jordan.png" alt="" class="sliderImg">
+            <div class="slideBg"></div>
+            <h1 class="title4">AIR <br> JORDAN <br> NEW </h1>
+            <h2 class="price4">109$</h2>
+            <a class="sld-a">
+                <button class="buyButton4">@Html.ActionLink("BUY NOW", "Shop", "User")</button>
+            </a>
+        </div>
+        <div class="sliderItem">
+            <img src="~/img/yeeze-bg.png" alt="" class="sliderImg">
+            <div class="slideBg"></div>
+            <h1 class="title5">YEZZE <br> NEW <br> SEASON</h1>
+            <h2 class="price5">129$</h2>
+            <a class="sld-a">
+                <button class="buyButton5">@Html.ActionLink("BUY NOW", "Shop", "User")</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="wp-products">
+    <h2>SẢN PHẨM NỔI BẬT</h2>
+    <ul id="list-products">
+            <div class="item">
+                <img style="width: 256px; height: 174px;" src="~/img/Puma-White-Blue.png" alt="">
+                <div class="stars">
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                </div>
+
+                <div class="name">Puma White Blue</div>
+                <div class="desc">Đẹp và phù hợp với tất cả mọi người</div>
+                <div class="price">500.000 VNĐ</div>
+                <div class="sizes">
+                    <div class="size">39</div>
+                    <div class="size">40</div>
+                    <div class="size">41</div>
+                    <div class="size">42</div>
+                    <div class="size">43</div>
+                </div>
+                <div>
+                    @*<a href="@Url.Action("ThemGioHang", "GioHang", new {@iMaGiay=Model.MaGiay(15), @strURL=Request.Url.ToString() })">
+                        <button class="btn-addCart">Add cart</button>
+                    </a>*@
+                <button class="btn-addCart">Add cart</button>
+                </div>
+            </div>
+
+        <div class="item">
+            <img style="width: 256px; height: 174px;" src="~/img/Nike-pink.png" alt="">
+            <div class="stars">
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+            </div>
+
+            <div class="name">Nike Hồng</div>
+            <div class="desc">Giày thể hiện cá tính của bạn</div>
+            <div class="price">500.000 VNĐ</div>
+            <div class="sizes">
+                <div class="size">39</div>
+                <div class="size">40</div>
+                <div class="size">41</div>
+                <div class="size">42</div>
+                <div class="size">43</div>
+            </div>
+            <div>
+                <button class="btn-addCart">Add cart</button>
+            </div>
+        </div>
+        <div class="item">
+            <img style="width: 256px; height: 174px;" src="~/img/Jordan-Cam.png" alt="">
+            <div class="stars">
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+            </div>
+
+            <div class="name">Jordan Cam</div>
+            <div class="desc">Cực phẩm mới ra đây cả nhà</div>
+            <div class="price">500.000 VNĐ</div>
+            <div class="sizes">
+                <div class="size">39</div>
+                <div class="size">40</div>
+                <div class="size">41</div>
+                <div class="size">42</div>
+                <div class="size">43</div>
+            </div>
+            <div>
+                <button class="btn-addCart">Add cart</button>
+            </div>
+        </div>
+        <div class="item">
+            <img style="width: 256px; height: 174px;" src="~/img/Adidas-Super-Star.png" alt="">
+            <div class="stars">
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+                <span>
+                    <img src="~/assets/star.png" alt="">
+                </span>
+            </div>
+
+            <div class="name">Adidas Super Star</div>
+            <div class="desc">Sang trọng, đẹp đẽ</div>
+            <div class="price">500.000 VNĐ</div>
+            <div class="sizes">
+                <div class="size">39</div>
+                <div class="size">40</div>
+                <div class="size">41</div>
+                <div class="size">42</div>
+                <div class="size">43</div>
+            </div>
+            <div>
+                <button class="btn-addCart">Add cart</button>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<div id="saleoff">
+    <h1>TƯNG BỪNG GIẢM GIÁ</h1>
+    <div class="box">
+        <div class="box-left">
+            <h1>
+                <span>GIẢM GIÁ LÊN ĐẾN</span>
+                <span>15%</span>
+            </h1>
+        </div>
+        <div class="box-right">
+            <a href="">
+                <img style="width: 570px; height: 322px;" src="~/img/nike-blue.jpg" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="comment">
+    <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
+    <div id="comment-body">
+        <div class="prev">
+            <a href="#">
+                <img src="~/assets/prev.png" alt="">
+            </a>
+        </div>
+        <ul id="list-comment">
+            <li class="item">
+                <div class="avatar">
+                    <img src="~/assets/avatar_1.png" alt="">
+
+                </div>
+                <div class="stars">
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                </div>
+                <div class="name">Lê Hồng Phong</div>
+
+                <div class="text">
+                    <p>Sản phẩm bên shop rất tốt không có gì phải chê thế nên mọi người cứ yên tâm mà mua ủng hộ cho shop nhé! Mãi ủng hộ shop. From Bắc Giang with love <3.</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="avatar">
+                    <img src="~/assets/avatar_1.png" alt="">
+
+                </div>
+                <div class="stars">
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                </div>
+                <div class="name">Trần Ngọc Trung Kiên</div>
+
+                <div class="text">
+                    <p>Giày đi chắc chân, êm ái, thoải mái. Hộp giày không bị bóp méo khi giao hàng. Sản phẩm chất lượng. Feedback từ HCM thân yêu!</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="avatar">
+                    <img src="~/assets/avatar_1.png" alt="">
+
+                </div>
+                <div class="stars">
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                    <span>
+                        <img src="~/assets/star.png" alt="">
+                    </span>
+                </div>
+                <div class="name">Nguyễn Đỗ Huyền My</div>
+
+                <div class="text">
+                    <p>Không có gì để nhận xét về giày, vì không biết miêu tả sao về chất lượng của giày nữa bởi nó quá tuyệt vời rồi quá đỉnh luôn shop ạ. Mãi yêu shop, hứa sẽ ủng hộ shop lâu dài <3.</p>
+                </div>
+            </li>
+        </ul>
+        <div class="next">
+            <a href="#">
+                <img src="~/assets/next.png" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="features">
+    <div class="fea1">
+        <img class="fea-img" src="~/img/shipping.png" alt="" width="50px">
+        <h4 class="fea-head">FREE SHIPPING</h4>
+        <p class="fea-text">Free worldwide shipping on all orders</p>
+    </div>
+
+    <div class="fea1">
+        <img class="fea-img" src="~/img/return.png " alt="" width="50px">
+        <h4 class="fea-head">30 DAYS RETURN</h4>
+        <p class="fea-text">Free worldwide shipping on all orders</p>
+    </div>
+
+    <div class="fea1">
+        <img class="fea-img" src="~/img/gift.png" alt="" width="50px">
+        <h4 class="fea-head">GIFT CARDS</h4>
+        <p class="fea-text">Free worldwide shipping on all orders</p>
+    </div>
+
+    <div class="fea1">
+        <img class="fea-img" src="~/img/contact.png" alt="" width="50px">
+        <h4 class="fea-head">CONTACT US</h4>
+        <p class="fea-text">Free worldwide shipping on all orders</p>
+    </div>
+</div>  
+
+<script>
+    const wrapper = document.querySelector(".sliderWrapper");
+    function first(yasin) {
+        wrapper.style.transform = "translateX(" + yasin + "vw)";
+    }
+    function add() {
+        shoes = document.querySelector(".bottom");
+        bilgecanDede = document.querySelector(".down");
+
+        shoes.classList.toggle('active');
+
+        if (bilgecanDede.getAttribute("status") == "active") {
+            bilgecanDede.innerHTML = "<i class='fa-solid fa-angles-up fa-2x'></i>";
+            bilgecanDede.setAttribute("status", "disable")
+        }
+        else {
+            bilgecanDede.innerHTML = "<i class='fa-solid fa-angles-down fa-2x'></i>";
+            bilgecanDede.setAttribute("status", "active")
+        }
+    }
+</script>
