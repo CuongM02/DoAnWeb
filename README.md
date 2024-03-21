@@ -1,4 +1,4 @@
-# CV cá nhân - Nguyễn Mạnh Cường
+# Nguyễn Mạnh Cường
 # HUTECH - Đại học Công nghệ TP.HCM
 ## Thẻ sinh viên
 *  Họ tên: Nguyễn Mạnh Cường
